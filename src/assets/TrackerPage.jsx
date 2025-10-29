@@ -57,12 +57,10 @@ function TrackerPage({ habitName, currentStreak, targetStreak, lastCompletedDate
 
                 <div className="grid grid-cols-2 gap-4 text-center mb-10">
                     <div className={`p-5 rounded-xl shadow-lg ${streakBgClass} border border-${accentColor}-300 transition duration-300 transform hover:scale-[1.05]`}>
-                        {/* FIX: Use numericCurrentStreak to display the current streak safely */}
                         <p className={`text-6xl font-black text-${accentColor}-700`}>{numericCurrentStreak}</p>
                         <p className="text-sm font-semibold text-gray-700 mt-2">Current Streak</p>
                     </div>
                     <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 shadow-inner">
-                        {/* FIX: Use Math.max to prevent negative days and ensure calculation uses numbers */}
                         <p className="text-6xl font-black text-gray-600">
                             {Math.max(0, numericTargetStreak - numericCurrentStreak)}
                         </p>
