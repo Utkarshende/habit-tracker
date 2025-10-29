@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { RefreshCw, TrendingUp, CheckCircle, Clock, Settings, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
-const getTodayDateString = () => {
-    return new Date().toISOString().split('T')[0];
-};
-
-// ===========================================
-// 1. SETUP PAGE COMPONENT (Handles Settings/Goal Configuration)
-// ===========================================
 function SetupPage({ habitName, targetStreak, setHabitName, setTargetStreak, setCurrentPage }) {
     const [nameInput, setNameInput] = useState(habitName);
     const [targetInput, setTargetInput] = useState(targetStreak);
+    const [error, setError] = useState('');
 
     const handleSave = () => {
-        if (nameInput.trim() && targetInput > 0) {
+        if (nameInput.trim() && Number(targetInput) > 0) {
             setHabitName(nameInput.trim());
             setTargetStreak(Number(targetInput));
             setCurrentPage('tracker');
+        } else {
+            setError('Please ensure the habit name is not empty and the target streak is greater than 0.');
         }
+    };
+    
+    const backToTracker = () => {
+        setCurrentPage('tracker');
     };
 
     return (
@@ -50,6 +50,12 @@ function SetupPage({ habitName, targetStreak, setHabitName, setTargetStreak, set
                         />
                     </label>
                 </div>
+                
+                {error && (
+                    <div className="p-3 mb-4 text-sm text-red-700 bg-red-100 rounded-xl font-medium">
+                        {error}
+                    </div>
+                )}
 
                 <div className="space-y-3">
                     <button
@@ -59,7 +65,7 @@ function SetupPage({ habitName, targetStreak, setHabitName, setTargetStreak, set
                         Save and Start Tracking
                     </button>
                     <button
-                        onClick={() => setCurrentPage('tracker')}
+                        onClick={backToTracker}
                         className="w-full py-3 flex items-center justify-center font-medium text-base text-gray-700 bg-gray-200 rounded-xl hover:bg-gray-300 transition duration-200"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" />
@@ -70,3 +76,5 @@ function SetupPage({ habitName, targetStreak, setHabitName, setTargetStreak, set
         </div>
     );
 };
+
+export default SetupPage;
