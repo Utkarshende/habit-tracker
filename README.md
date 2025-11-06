@@ -1,4 +1,4 @@
-# StreakFlow: Simple Habit Tracker
+# Habit Tracker
 StreakFlow is a clean, modern, and minimal single-page application built with React and styled using Tailwind CSS. It focuses on the core concept of habit tracking: setting a goal streak and logging daily completion to maintain momentum.
 
 ## Features
