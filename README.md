@@ -18,4 +18,4 @@ Responsive & Aesthetic Design: Utilizes dynamic gradients and shadows for a mode
 
 ## 🖼️ Application Screenshot
 
-![StreakFlow Habit Tracker Dashboard](./assets/streakflow-dashboard.png)
+![StreakFlow Habit Tracker Dashboard](./assets/screenshot.png)
