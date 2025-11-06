@@ -1,6 +1,7 @@
 import React,{ useState } from "react";
 import TrackerPage from "./assets/TrackerPage.jsx";
 import SetupPage from "./assets/SetupPage.jsx";
+import Image from "./assets/screenshot.png";
 
 function App() {
     const [habitName, setHabitName] = useState("Daily Reading (30 min)");
@@ -38,6 +39,7 @@ function App() {
             flex items-center justify-center 
             p-4 sm:p-8 
         ">
+            <img src="image"/>
             <div className="
                 w-full max-w-lg 
                 bg-white 
